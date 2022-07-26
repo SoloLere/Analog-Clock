@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css?family=Heebo:300&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #000;
+    --secondary-color: #fff;
+}
+
+/* transition should be added to the parent element of transitioning component */
+html {
+    transition: all 500ms ease-in;
+}
+
+html.dark {
+    --primary-color: #fff;
+    --secondary-color: #333;
+}
+
+html.dark {
+    background-color: #111;
+    color: var(--primary-color);
+}
+
+body {
+font-family: 'Heebo', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* I don't need to put 'position: relative' on the body element if a direct child would be positioned "abosolutely" */
+
+.toggle {
+    position: absolute;
+    top: 50px;
+    border-radius: 4px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: .25em .5em;
+    cursor: pointer;
+    transition: 100ms ease;
+}
+
+.toggle:hover {
+    opacity: 0.85;
+}
+
+.toggle:active {
+    transform: scale(0.98);
+}
+
+.clock-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.clock {
+    width: 200px;
+    height: 200px;
+    position: relative;
+}
+
+.needle {
+    background-color: var(--primary-color);
+    width: 3px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: bottom center;
+}
+
+.needle.hour{
+    height: 50px;
+    transform: translate(-50%, -100%) rotate(0deg);
+}
+.needle.minute{
+    height: 80px;
+    transform: translate(-50%, -100%) rotate(0deg);
+}
+.needle.second{
+    height: 80px;
+    background-color: #e74c3c;
+    transform: translate(-50%, -100%) rotate(0deg);
+}
+
+.center-point {
+    background-color: #e74c3c;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.center-point::before {
+    content: '';
+    background-color: var(--primary-color);
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.time {
+    font-size: 60px;
+}
+
+.date {
+    color: #aaa;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+.date .circle {
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    display: inline-flex;
+    width: 18px;
+    height: 18px;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    transition: all 500ms ease-in;
+}
+
+
